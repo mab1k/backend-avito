@@ -1,0 +1,11 @@
+# Сразу на будущее сделал сборку через докер
+services:
+  api:
+    build: .
+    container_name: backend-avito-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: fastapi dev main.py --host 0.0.0.0 --port 8000
+    restart: unless-stopped
